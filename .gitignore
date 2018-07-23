@@ -1,0 +1,5 @@
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+amazon-keys.tf
+config-map-aws-auth.yaml

@@ -1,0 +1,21 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: loadtest
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: loadtest
+            image: gupguru/loadtest
+            args:
+            - run
+            - --vus 
+            - 10
+            - --duration
+            - 30s
+            - loadtest.js
+          restartPolicy: OnFailure
